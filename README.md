@@ -1,3 +1,3 @@
 # NahidaLibrary.Server
 
-纳西妲图书馆的后端
+纳西妲图书馆的服务端
