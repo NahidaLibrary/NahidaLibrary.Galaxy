@@ -4,8 +4,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-open class AccountApplication
+class AccountApplication
 
 fun main(args: Array<String>) {
-  runApplication<xyz.nahidalibrary.galaxy.account.AccountApplication>(*args)
+  runApplication<AccountApplication>(*args)
 }

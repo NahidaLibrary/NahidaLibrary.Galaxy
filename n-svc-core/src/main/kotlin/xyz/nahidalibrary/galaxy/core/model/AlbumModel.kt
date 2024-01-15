@@ -6,5 +6,6 @@ import xyz.nahidalibrary.galaxy.core.anno.NoArg
 @NoArg
 @TableName("n_album")
 data class AlbumModel(
-  val name: String
+  val name: String,
+  val coverLink: String
 ) : BaseModel()
