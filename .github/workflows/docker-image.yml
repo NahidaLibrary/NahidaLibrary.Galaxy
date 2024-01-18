@@ -3,7 +3,7 @@ name: Docker Image
 on:
   push:
     tags:
-      - '*'
+      - "v*"
 
 env:
   DOCKER_REPO_N_GATEWAY: ghcr.io/nahidalibrary/galaxy/n-gateway
@@ -16,6 +16,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Get version
+        id: get_version
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+    
       - uses: actions/checkout@v3
 
       - name: Set up JDK 11
@@ -49,7 +53,7 @@ jobs:
           push: true
           tags: |
             ${{ env.DOCKER_REPO_N_GATEWAY }}:latest
-            ${{ env.DOCKER_REPO_N_GATEWAY }}:${{ github.ref }}
+            ${{ env.DOCKER_REPO_N_GATEWAY }}:${{ steps.get_version.outputs.VERSION }}
 
       - name: Build and push n-svc-core
         uses: docker/build-push-action@v5
@@ -62,7 +66,7 @@ jobs:
           push: true
           tags: |
             ${{ env.DOCKER_REPO_N_SVC_CORE }}:latest
-            ${{ env.DOCKER_REPO_N_SVC_CORE }}:${{ github.ref }}
+            ${{ env.DOCKER_REPO_N_SVC_CORE }}:${{ steps.get_version.outputs.VERSION }}
   
 #      - name: Webhook
 #        run: |
