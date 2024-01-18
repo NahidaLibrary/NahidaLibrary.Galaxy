@@ -49,7 +49,7 @@ jobs:
           push: true
           tags: |
             ${{ env.DOCKER_REPO_N_GATEWAY }}:latest
-            ${{ env.DOCKER_REPO_N_GATEWAY }}:${{ GITHUB_REF#refs/tags/ }}
+            ${{ env.DOCKER_REPO_N_GATEWAY }}:${{ github.ref }}
 
       - name: Build and push n-svc-core
         uses: docker/build-push-action@v5
@@ -62,7 +62,7 @@ jobs:
           push: true
           tags: |
             ${{ env.DOCKER_REPO_N_SVC_CORE }}:latest
-            ${{ env.DOCKER_REPO_N_SVC_CORE }}:${{ GITHUB_REF#refs/tags/ }}
+            ${{ env.DOCKER_REPO_N_SVC_CORE }}:${{ github.ref }}
   
 #      - name: Webhook
 #        run: |
