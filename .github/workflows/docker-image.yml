@@ -6,9 +6,9 @@ on:
       - '*'
 
 env:
-  DOCKER_REPO_N_GATEWAY: ghcr.io/NahidaLibrary/n-gateway
-  DOCKER_REPO_N_SVC_ACCOUNT: ghcr.io/NahidaLibrary/n-svc-account
-  DOCKER_REPO_N_SVC_CORE: ghcr.io/NahidaLibrary/n-svc-core
+  DOCKER_REPO_N_GATEWAY: ghcr.io/${{ github.repository }}/n-gateway
+  DOCKER_REPO_N_SVC_ACCOUNT: ghcr.io/${{ github.repository }}/n-svc-account
+  DOCKER_REPO_N_SVC_CORE: ghcr.io/${{ github.repository }}/n-svc-core
 
 jobs:
   build:
