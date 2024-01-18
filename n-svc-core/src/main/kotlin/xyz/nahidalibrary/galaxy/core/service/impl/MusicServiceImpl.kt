@@ -25,7 +25,7 @@ class MusicServiceImpl : MusicService {
   
   override fun listAlbum() =
     ListAlbumVo(albumMapper.selectList(Wrappers.emptyWrapper())
-      .map { AlbumItemVo(id = it.id!!, name = it.name) })
+      .map { AlbumItemVo(id = it.id!!, name = it.name, coverLink = it.coverLink) })
   
   override fun listMusic(albumId: Long) =
     ListMusicVo(musicMapper.listByAlbumId(albumId)

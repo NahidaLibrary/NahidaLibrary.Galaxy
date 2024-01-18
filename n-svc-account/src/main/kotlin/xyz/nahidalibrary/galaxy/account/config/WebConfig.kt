@@ -7,7 +7,7 @@ import xyz.nahidalibrary.galaxy.account.controller.interceptor.IpInterceptor
 
 
 @Configuration
-open class WebConfig : WebMvcConfigurer {
+class WebConfig : WebMvcConfigurer {
   
   override fun addInterceptors(registry: InterceptorRegistry) {
     // 注册 IPInterceptor 拦截器，并指定拦截的路径

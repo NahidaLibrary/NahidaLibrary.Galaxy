@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 open class GatewayApplication
 
 fun main(args: Array<String>) {
-  runApplication<xyz.nahidalibrary.galaxy.gateway.GatewayApplication>(*args)
+  runApplication<GatewayApplication>(*args)
 }

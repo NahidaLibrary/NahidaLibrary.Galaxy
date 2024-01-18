@@ -6,5 +6,6 @@ data class ListAlbumVo(
 
 data class AlbumItemVo(
   val id: Long,
-  val name: String
+  val name: String,
+  val coverLink: String,
 )

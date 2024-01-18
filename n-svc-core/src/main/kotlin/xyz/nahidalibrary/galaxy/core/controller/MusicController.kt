@@ -1,7 +1,6 @@
 package xyz.nahidalibrary.galaxy.core.controller
 
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
@@ -16,11 +15,6 @@ class MusicController {
   
   @Autowired
   private lateinit var musicService: MusicService
-  
-  @GetMapping("/probe")
-  fun probe(): ResponseEntity<Map<String, String>> {
-    return ResponseEntity(mapOf("hello" to "world"), HttpStatus.OK)
-  }
   
   @GetMapping("/listAlbum")
   fun listAlbum(): ResponseEntity<ListAlbumVo> =
