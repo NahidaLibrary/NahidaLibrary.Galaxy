@@ -6,9 +6,9 @@ on:
       - '*'
 
 env:
-  DOCKER_REPO_N_GATEWAY: lkzc19/n-gateway
-  DOCKER_REPO_N_SVC_ACCOUNT: lkzc19/n-svc-account
-  DOCKER_REPO_N_SVC_CORE: lkzc19/n-svc-core
+  DOCKER_REPO_N_GATEWAY: ghcr.io/n-gateway
+  DOCKER_REPO_N_SVC_ACCOUNT: ghcr.io/n-svc-account
+  DOCKER_REPO_N_SVC_CORE: ghcr.io/n-svc-core
 
 jobs:
   build:
@@ -31,11 +31,12 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
-      - name: Log in to Docker Hub
+      - name: Login to GitHub Container Registry'
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and push n-gateway
         uses: docker/build-push-action@v5
@@ -49,18 +50,6 @@ jobs:
           tags: |
             ${{ env.DOCKER_REPO_N_GATEWAY }}:latest
 
-      - name: Build and push n-svc-account
-        uses: docker/build-push-action@v5
-        with:
-          context: ./n-svc-account
-          file: ./n-svc-account/d.prod.Dockerfile
-          platforms: |
-            linux/amd64
-            linux/arm64
-          push: true
-          tags: |
-            ${{ env.DOCKER_REPO_N_SVC_ACCOUNT }}:latest
-
       - name: Build and push n-svc-core
         uses: docker/build-push-action@v5
         with:
@@ -73,6 +62,6 @@ jobs:
           tags: |
             ${{ env.DOCKER_REPO_N_SVC_CORE }}:latest
 
-      - name: Webhook
-        run: |
-          curl --location --request GET '${{ secrets.WEBHOOK_URL }}'
+#      - name: Webhook
+#        run: |
+#          curl --location --request GET '${{ secrets.WEBHOOK_URL }}'
