@@ -46,7 +46,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: ./n-gateway
-          file: ./n-gateway/d.prod.Dockerfile
+          file: ./n-gateway/Dockerfile
           platforms: |
             linux/amd64
             linux/arm64
@@ -59,7 +59,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: ./n-svc-core
-          file: ./n-svc-core/d.prod.Dockerfile
+          file: ./n-svc-core/Dockerfile
           platforms: |
             linux/amd64
             linux/arm64
