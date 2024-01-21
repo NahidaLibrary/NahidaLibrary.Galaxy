@@ -28,7 +28,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>xyz.drinkice.nahidalibrary.GatewayApplicationKt</mainClass>
+                    <mainClass>xyz.nahidalibrary.galaxy.gateway.GatewayApplicationKt</mainClass>
                 </configuration>
                 <executions>
                     <execution>
@@ -52,7 +52,7 @@
                         <plugin>no-arg</plugin>
                     </compilerPlugins>
                     <pluginOptions>
-                        <option>no-arg:annotation=xyz.drinkice.nahidalibrary.anno.NoArg</option>
+                        <option>no-arg:annotation=xyz.nahidalibrary.galaxy.gateway.anno.NoArg</option>
                     </pluginOptions>
                 </configuration>
                 <executions>
