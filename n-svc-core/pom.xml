@@ -45,7 +45,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>xyz.drinkice.nahidalibrary.CoreApplicationKt</mainClass>
+                    <mainClass>xyz.nahidalibrary.galaxy.core.CoreApplicationKt</mainClass>
                 </configuration>
                 <executions>
                     <execution>
@@ -69,7 +69,7 @@
                         <plugin>no-arg</plugin>
                     </compilerPlugins>
                     <pluginOptions>
-                        <option>no-arg:annotation=xyz.drinkice.nahidalibrary.anno.NoArg</option>
+                        <option>no-arg:annotation=xyz.nahidalibrary.galaxy.core.anno.NoArg</option>
                     </pluginOptions>
                 </configuration>
                 <executions>
