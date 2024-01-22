@@ -65,8 +65,8 @@ create table n_third_account
 
 -- 索引
 -- 「唯一键」与「逻辑删除」冲突解决方案备忘:
---      逻辑删除字段改为Int类型，删除时将其所有删除的明细的删除标记+1即非0都是代表被删除 ☑️
---      逻辑删除字段改为时间类型，未删除 字段为null 已删除则是删除时间
+--      逻辑删除字段改为Int类型，删除时将其所有删除的明细的删除标记+1即非0都是代表被删除 | 暂时选用 因为没有UI 改数字会比较方便
+--      逻辑删除字段改为时间类型，未删除 字段为null 已删除则是删除时间 | 如果选用，直接添加字段 deleted_time
 
 create unique index n_music_name_uindex
     on n_music (name, is_deleted);
