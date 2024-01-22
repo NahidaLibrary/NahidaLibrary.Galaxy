@@ -6,8 +6,8 @@ import xyz.nahidalibrary.galaxy.core.anno.NoArg
 @NoArg
 @TableName("n_music")
 data class MusicModel(
-  val name: String,
-  val link: String,
-  val trainer: String,
-  val trainerLink: String
+  var name: String,
+  var link: String,
+  var trainer: String,
+  var trainerLink: String
 ) : BaseModel()

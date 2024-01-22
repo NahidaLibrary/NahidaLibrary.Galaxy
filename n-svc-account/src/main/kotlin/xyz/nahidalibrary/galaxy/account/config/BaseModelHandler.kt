@@ -19,7 +19,7 @@ class BaseModelHandler : MetaObjectHandler {
   override fun insertFill(metaObject: MetaObject) {
     // 起始版本 3.3.3(推荐)
     this.strictInsertFill(metaObject, BaseModel::createAt.name, { OffsetDateTime.now() }, OffsetDateTime::class.java)
-    this.strictInsertFill(metaObject, BaseModel::deleted.name, { false }, Boolean::class.java)
+    this.strictInsertFill(metaObject, BaseModel::deleted.name, { 0 }, Int::class.java)
   }
   
   /**
