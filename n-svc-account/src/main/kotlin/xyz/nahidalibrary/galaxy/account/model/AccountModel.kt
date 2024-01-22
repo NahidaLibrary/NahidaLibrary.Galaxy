@@ -7,11 +7,11 @@ import xyz.nahidalibrary.galaxy.account.anno.NoArg
 @NoArg
 @TableName("n_account")
 data class AccountModel(
-  val username: String,
+  var username: String,
   @TableField("\"password\"")
-  val password: String?,
+  var password: String?,
   /**用于JWT加密的密钥 与password相同，如果未设置则取随机值*/
-  val secret: String,
-  val nickname: String,
-  val email: String? = null
+  var secret: String,
+  var nickname: String,
+  var email: String? = null
 ): BaseModel()
