@@ -25,9 +25,9 @@ class MusicServiceImpl : MusicService {
   
   override fun listAlbum() =
     ListAlbumVo(albumMapper.selectList(Wrappers.emptyWrapper())
-      .map { AlbumItemVo(id = it.id!!, name = it.name, coverLink = it.coverLink) })
+      .map { AlbumItemVo(id = it.id!!, name = it.name, coverLink = "http://101.201.116.226/nlib/album_cover/${it.coverLink}") })
   
   override fun listMusic(albumId: Long) =
     ListMusicVo(musicMapper.listByAlbumId(albumId)
-      .map { MusicItemVo(id = it.id!!, name = it.name, link = it.link) })
+      .map { MusicItemVo(id = it.id!!, name = it.name, link = "http://101.201.116.226/nlib/music/${it.link}") })
 }
