@@ -7,12 +7,15 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/test")
 class TestController {
   
-  @GetMapping("/probe")
-  fun probe(): ResponseEntity<Map<String, String>> {
-    return ResponseEntity(mapOf("hello" to "world"), HttpStatus.OK)
+  @GetMapping("/ping")
+  fun ping(): ResponseEntity<String> {
+    return ResponseEntity("pong", HttpStatus.OK)
   }
-
+  
+  @GetMapping("/auth")
+  fun auth(): ResponseEntity<String> {
+    return ResponseEntity("pong", HttpStatus.OK)
+  }
 }

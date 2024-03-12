@@ -1,11 +1,11 @@
-package xyz.nahidalibrary.galaxy.gateway
+package xyz.nahidalibrary.galaxy.auth
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class GatewayApplication
+class AuthApplication
 
 fun main(args: Array<String>) {
-  runApplication<GatewayApplication>(*args)
+  runApplication<AuthApplication>(*args)
 }

@@ -6,37 +6,44 @@
         <artifactId>galaxy</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>n-gateway</artifactId>
+    <artifactId>nl-auth</artifactId>
 
-   <dependencies>
-       <dependency>
-           <groupId>org.springframework.cloud</groupId>
-           <artifactId>spring-cloud-starter-gateway</artifactId>
-       </dependency>
+    <dependencies>
+        <!--Spring-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-oauth2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-security</artifactId>
+        </dependency>
 
-       <dependency>
-           <groupId>com.alibaba.cloud</groupId>
-           <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-       </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>
 
-       <dependency>
-           <groupId>org.springframework.boot</groupId>
-           <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
-       </dependency>
-       <dependency>
-           <groupId>org.springframework.boot</groupId>
-           <artifactId>spring-boot-starter-security</artifactId>
-       </dependency>
-       <dependency>
-           <groupId>org.springframework.cloud</groupId>
-           <artifactId>spring-cloud-starter-loadbalancer</artifactId>
-       </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
 
-       <dependency>
-           <groupId>org.springframework.boot</groupId>
-           <artifactId>spring-boot-starter-data-redis</artifactId>
-       </dependency>
-   </dependencies>
+        <!--Test-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
     <build>
         <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
@@ -46,7 +53,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>xyz.nahidalibrary.galaxy.gateway.GatewayApplicationKt</mainClass>
+                    <mainClass>xyz.nahidalibrary.galaxy.core.CoreApplicationKt</mainClass>
                 </configuration>
                 <executions>
                     <execution>
@@ -71,7 +78,7 @@
                         <plugin>no-arg</plugin>
                     </compilerPlugins>
                     <pluginOptions>
-                        <option>no-arg:annotation=xyz.nahidalibrary.galaxy.gateway.anno.NoArg</option>
+                        <option>no-arg:annotation=xyz.nahidalibrary.galaxy.core.anno.NoArg</option>
                     </pluginOptions>
                 </configuration>
                 <executions>
