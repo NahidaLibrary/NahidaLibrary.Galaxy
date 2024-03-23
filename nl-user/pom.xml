@@ -6,7 +6,8 @@
         <artifactId>galaxy</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>nl-auth</artifactId>
+    <artifactId>nl-user</artifactId>
+    <packaging>jar</packaging>
 
     <dependencies>
         <!--Spring-->
@@ -18,14 +19,6 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.cloud</groupId>-->
-<!--            <artifactId>spring-cloud-starter-oauth2</artifactId>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.cloud</groupId>-->
-<!--            <artifactId>spring-cloud-starter-security</artifactId>-->
-<!--        </dependency>-->
 
         <dependency>
             <groupId>org.postgresql</groupId>
@@ -37,7 +30,11 @@
             <artifactId>mybatis-plus-boot-starter</artifactId>
         </dependency>
 
-        <!--引入JWT-->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring-boot-web-starter</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>com.auth0</groupId>
             <artifactId>java-jwt</artifactId>
@@ -49,11 +46,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
     </dependencies>
 
     <build>
@@ -64,7 +56,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>xyz.nahidalibrary.galaxy.core.CoreApplicationKt</mainClass>
+                    <mainClass>xyz.nahidalibrary.galaxy.user.UserApplicationKt</mainClass>
                 </configuration>
                 <executions>
                     <execution>
@@ -72,7 +64,7 @@
                         <goals>
                             <goal>repackage</goal>
                         </goals>
-                    </execution>
+                  </execution>
                 </executions>
             </plugin>
             <plugin>
@@ -89,7 +81,7 @@
                         <plugin>no-arg</plugin>
                     </compilerPlugins>
                     <pluginOptions>
-                        <option>no-arg:annotation=xyz.nahidalibrary.galaxy.core.anno.NoArg</option>
+                        <option>no-arg:annotation=xyz.nahidalibrary.galaxy.user.anno.NoArg</option>
                     </pluginOptions>
                 </configuration>
                 <executions>

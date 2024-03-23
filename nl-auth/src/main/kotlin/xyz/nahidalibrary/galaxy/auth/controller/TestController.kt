@@ -12,6 +12,6 @@ class TestController {
   
   @GetMapping("/ping")
   fun ping(): ResponseEntity<String> {
-    return ResponseEntity("pong", HttpStatus.OK)
+    return ResponseEntity("pong...auth", HttpStatus.OK)
   }
 }

@@ -12,7 +12,7 @@
 
     <modules>
         <module>n-gateway</module>
-        <module>n-svc-account</module>
+        <module>nl-user</module>
         <module>n-svc-core</module>
         <module>nl-auth</module>
     </modules>
