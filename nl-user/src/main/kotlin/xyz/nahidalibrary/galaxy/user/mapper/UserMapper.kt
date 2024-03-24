@@ -5,5 +5,5 @@ import org.apache.ibatis.annotations.Mapper
 import xyz.nahidalibrary.galaxy.user.model.UserModel
 
 @Mapper
-interface AccountMapper : BaseMapper<UserModel> {
+interface UserMapper : BaseMapper<UserModel> {
 }

@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.annotation.TableName
 import xyz.nahidalibrary.galaxy.user.anno.NoArg
 
 @NoArg
-@TableName("n_third_account")
+@TableName("nl_third_account")
 data class ThirdAccountModel(
   var accountId: String,
   var thirdId: String,

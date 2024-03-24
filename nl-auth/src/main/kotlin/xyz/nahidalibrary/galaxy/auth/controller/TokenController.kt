@@ -1,20 +1,20 @@
 package xyz.nahidalibrary.galaxy.auth.controller
 
-import com.auth0.jwt.exceptions.TokenExpiredException
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.*
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
 import xyz.nahidalibrary.galaxy.auth.util.JwtUtils
 import xyz.nahidalibrary.galaxy.auth.vo.PayloadVo
 import javax.servlet.http.HttpServletRequest
 
-
 @RestController
 @RequestMapping("/token")
-class AuthController {
+class TokenController {
   
-  private val logger = LoggerFactory.getLogger(AuthController::class.java)
+  private val logger = LoggerFactory.getLogger(TokenController::class.java)
   
   @PostMapping("/verify")
   fun verifyToken(request: HttpServletRequest): ResponseEntity<PayloadVo> {

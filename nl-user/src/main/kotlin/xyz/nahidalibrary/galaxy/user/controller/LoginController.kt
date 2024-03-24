@@ -10,18 +10,18 @@ import xyz.nahidalibrary.galaxy.user.common.BizErrorTypeEnum
 import xyz.nahidalibrary.galaxy.user.dto.LoginByCodeDto
 import xyz.nahidalibrary.galaxy.user.dto.LoginDto
 import xyz.nahidalibrary.galaxy.user.exception.VerificationException
-import xyz.nahidalibrary.galaxy.user.service.AccountService
+import xyz.nahidalibrary.galaxy.user.service.UserService
 import xyz.nahidalibrary.galaxy.user.util.RegexMatchUtils
 import xyz.nahidalibrary.galaxy.user.vo.LoginVo
 
 
 @RestController
-class AuthController {
+class LoginController {
   
-  private val logger = LoggerFactory.getLogger(AuthController::class.java)
+  private val logger = LoggerFactory.getLogger(LoginController::class.java)
   
   @Autowired
-  private lateinit var accountService: AccountService
+  private lateinit var userService: UserService
   
   /**
    * 账号-密码 登录，有以下几种情况
@@ -42,12 +42,12 @@ class AuthController {
     }
     // 账号
     if (!RegexMatchUtils.isUsername(loginDto.password)) {
-      val loginVo = accountService.login(username = loginDto.username, password = loginDto.password)
+      val loginVo = userService.login(username = loginDto.username, password = loginDto.password)
       return ResponseEntity.ok(loginVo)
     }
     // 邮箱
     if (RegexMatchUtils.isEmail(loginDto.username)) {
-      val loginVo = accountService.login(username = loginDto.username, password = loginDto.password, isEmail = true)
+      val loginVo = userService.login(username = loginDto.username, password = loginDto.password, isEmail = true)
       return ResponseEntity.ok(loginVo)
     }
     
@@ -69,12 +69,4 @@ class AuthController {
   fun logout(@RequestBody loginDto: LoginByCodeDto): ResponseEntity<LoginVo> {
     TODO()
   }
-  
-  @RequestMapping("/401")
-  fun unauthorized(): ResponseEntity<BizErrorResult> =
-    ResponseEntity(
-      BizErrorResult(
-        error = BizErrorTypeEnum.UNAUTHORIZED,
-        message = "请登录"
-      ), HttpStatus.UNAUTHORIZED)
 }

@@ -1,16 +1,17 @@
 package xyz.nahidalibrary.galaxy.user.model
 
 import com.baomidou.mybatisplus.annotation.*
+import java.time.LocalDateTime
 import java.time.OffsetDateTime
 
 abstract class BaseModel {
   @TableId(type = IdType.AUTO)
   var id: Long? = null
   @TableField(fill = FieldFill.INSERT)
-  var createAt: OffsetDateTime? = null
+  var createdAt: OffsetDateTime? = null
   @TableField(fill = FieldFill.UPDATE)
-  var updateAt: OffsetDateTime? = null
-  @TableField(value = "is_deleted", fill = FieldFill.INSERT)
+  var updatedAt: OffsetDateTime? = null
+  @TableField(value = "deletedAt")
   @TableLogic
-  var deleted: Int = 0
+  var deleteAt: LocalDateTime? = null
 }

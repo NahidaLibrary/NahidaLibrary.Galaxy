@@ -13,21 +13,19 @@ import java.time.OffsetDateTime
 class BaseModelHandler : MetaObjectHandler {
   /**
    * 插入填充
-   * - createAt: now
-   * - deleted: false
+   * - createdAt: now
    */
   override fun insertFill(metaObject: MetaObject) {
     // 起始版本 3.3.3(推荐)
-    this.strictInsertFill(metaObject, BaseModel::createAt.name, { OffsetDateTime.now() }, OffsetDateTime::class.java)
-    this.strictInsertFill(metaObject, BaseModel::deleted.name, { 0 }, Int::class.java)
+    this.strictInsertFill(metaObject, BaseModel::createdAt.name, { OffsetDateTime.now() }, OffsetDateTime::class.java)
   }
   
   /**
    * 更新填充
-   * - updateAt: now
+   * - updatedAt: now
    */
   override fun updateFill(metaObject: MetaObject) {
     // 起始版本 3.3.3(推荐)
-    this.strictUpdateFill(metaObject, BaseModel::updateAt.name, { OffsetDateTime.now() }, OffsetDateTime::class.java)
+    this.strictUpdateFill(metaObject, BaseModel::updatedAt.name, { OffsetDateTime.now() }, OffsetDateTime::class.java)
   }
 }
